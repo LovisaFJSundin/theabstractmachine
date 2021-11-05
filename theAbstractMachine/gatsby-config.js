@@ -34,7 +34,6 @@ module.exports = {
         path: `${__dirname}/src/data/`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
-    },
-
+    }
   ],
 }

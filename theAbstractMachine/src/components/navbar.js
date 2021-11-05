@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 //import styled from 'styled-components'
-import styles  from "./navbar.module.css"
+import * as styles  from "./navbar.module.css"
 
 
 const Navbar = () => {
   return (
-    <nav className={styles.rapper}>
+    <nav className={styles.wrapper}>
       <div className={styles.listBar} >
 
           <Link to="/the-machine" className={styles.navLink} >The Machine</Link>
