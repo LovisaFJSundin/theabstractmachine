@@ -1,0 +1,33 @@
+
+.wrapper{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.listBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1em 0px 0px 0px;
+}
+
+.navLink{
+    padding: 0px 20px;
+    font-family: "USIS 1949";
+    color: white;
+    text-transform: uppercase;
+    font-size: large;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+}
+
+.nav-link-active{
+    text-decoration: underline;
+}
+a:visited{
+    color: burlywood;
+
+}

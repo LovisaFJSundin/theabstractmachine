@@ -1,0 +1,38 @@
+
+
+/*
+https://www.fontspace.com/lukas-krakora
+https://www.fontspace.com/zai-royal-vogue-typewriter-1929-font-f42729
+https://www.fontspace.com/prager-headlines-font-f29725
+https://www.fontspace.com/fundamental-brigade-font-f13829
+*/
+
+/* 
+    Italic, a bit curly. Perhaps best used for aside quotes
+    https://www.fontspace.com/zai-soft-italic-typewriter-font-f42722 
+*/
+@font-face {
+    font-family: "Zai soft italic";
+    src: url("../fonts/ZaiSoftItalicTypewriter-vmnLy.ttf");
+  }
+
+
+  /*
+  All caps, a bit curly, for h3?
+  https://www.fontspace.com/usis-1949-font-f10812
+  */
+
+  @font-face {
+    font-family: "USIS 1949";
+    src: url("../fonts/Usis1949-6YZoq.ttf");
+  }
+
+  /*
+  Monograph for code
+  https://www.fontspace.com/modern-typewriter-font-f20243
+  */
+
+  @font-face {
+    font-family: "MODERN TYPEWRITER";
+    src: url("../fonts/ModernTypewriter-YaR4.ttf");
+  }
