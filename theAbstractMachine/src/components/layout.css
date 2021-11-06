@@ -23,7 +23,7 @@ Has amazing animations that make you fall in love with a site.
 }
 
 body{
-    background-image: url("../../static/background.jpg");
+    background-image: url(./background.jpg);
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
