@@ -16,17 +16,21 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "babel-plugin-styled-components": "^1.13.3",
     "gatsby": "^4.1.0",
+    "gatsby-background-image": "^1.5.3",
     "gatsby-link": "^4.1.0",
     "gatsby-plugin-image": "^2.1.0",
     "gatsby-plugin-mdx": "^3.1.0",
     "gatsby-plugin-sharp": "^4.1.0",
     "gatsby-plugin-styled-components": "^5.1.0",
     "gatsby-react-router-scroll": "^5.1.0",
+    "gatsby-source-filesystem": "^4.1.0",
     "gatsby-transformer-sharp": "^4.1.0",
     "lodash": "^4.17.21",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "prettier": "^2.4.1"

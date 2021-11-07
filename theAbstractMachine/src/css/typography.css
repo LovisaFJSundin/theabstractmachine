@@ -43,6 +43,18 @@ https://www.fontspace.com/fundamental-brigade-font-f13829
   }
 
   @font-face{
+    font-family:  "TT2020";
+    src: url("../fonts/Tt2020StyleFAscii-OVGZp.ttf");
+  }
+
+  @font-face{
+    font-family:  "TT2020";
+    src: url("../fonts/Tt2020StyleEItalic-4Bn3W.ttf");
+    font-style: italic;
+  }
+
+
+  @font-face{
     font-family: "Copystruct";
     src: url("../fonts/CopystructNormal-X3DP.ttf");
 

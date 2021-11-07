@@ -25,7 +25,7 @@ const StyledLink = styled(props => <Link {...props} />)`
     position: absolute;
     width: 95%;
     transform: scaleX(0);
-    height: 3px;
+    height: 2px;
     top: 2;
     bottom: 0;
     left: 0;
@@ -35,13 +35,14 @@ const StyledLink = styled(props => <Link {...props} />)`
   }
   &:hover {
     color: white;
-    text-shadow: 0 0 0px #fff, 0 0 10px #fff, 0 0 0px #fff;
   }
   &:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
 `;
+
+//text-shadow: 0 0 0px #fff, 0 0 10px #fff, 0 0 0px #fff;
 
 const MainLink = styled(StyledLink)`
   font-weight: bold;
@@ -53,11 +54,11 @@ const Navbar = () => {
 
           <StyledLink to="/"  >Home</StyledLink>
 
-          <MainLink to="/the-machine" >The Machine</MainLink>
+          <StyledLink to="/the-machine" >The Machine</StyledLink>
 
-          <MainLink to="/algorithms" >Algorithms</MainLink>
+          <StyledLink to="/algorithms" >Algorithms</StyledLink>
 
-          <MainLink to="/machine-intelligence" >Machine Intelligence</MainLink>
+          <StyledLink to="/machine-intelligence" >Machine Intelligence</StyledLink>
 
           <StyledLink to="/about"  >About</StyledLink>
 

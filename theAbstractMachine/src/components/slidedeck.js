@@ -1,5 +1,5 @@
 import { withAssetPrefix } from 'gatsby-link';
-import React, { useState, useMemo , useEffect } from 'react'
+import React, { Children, useState, useMemo , useEffect } from 'react'
 import styled, { keyframes } from "styled-components";
 import SSLencryption_01 from "./img/SSLencryption_01.png"
 import SSLencryption_02 from "./img/SSLencryption_02.png"
@@ -8,15 +8,7 @@ import SSLencryption_04 from "./img/SSLencryption_04.png"
 import debounce from 'lodash.debounce';
 import Stepper from "./stepper";
 
-
-export default function SlideDeck() {
-
-    const images = [
-        SSLencryption_01,
-        SSLencryption_02,
-        SSLencryption_03,
-        SSLencryption_04
-    ]
+export default function SlideDeck({ title, children }) {
 
     // Store current index TODO: make props-dependent
     const [stepIndex, setStepIndex] = useState(0);
@@ -38,7 +30,7 @@ export default function SlideDeck() {
                 console.log("It went back!");
             }else{
             // If scrolled downwards, increment index
-                setStepIndex(stepIndex < images.length-1 ? stepIndex + 1: images.length-1);
+                setStepIndex(stepIndex < children.length-1 ? stepIndex + 1: children.length-1);
                 //setLastScroll(scrollY);
                 console.log("It went forward!");
             }
@@ -70,38 +62,18 @@ export default function SlideDeck() {
 
     return (
         <Wrapper >
-        { images.map((imgName, i)=> ( 
-        i==stepIndex && <Step url={imgName}></Step> 
-        )) }
-        <Stepper n={images.length}></Stepper>
+          <Title>{title}</Title>
+        {Children.map(children, (child, i) => React.cloneElement(child, { active: i==stepIndex })
+          )}
+
+        <Stepper n={children?.length || 0}></Stepper>
         </Wrapper>
     )
 }
 
-/*
-
-*/
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`
-
-const fadeOut = keyframes`
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-`
-const PlaceHolder = styled.h1`
-    animation: 5s ${fadeIn} ease-out;
-    color: white; 
-    fontSize: 50px;
+const Title = styled.h1`
+  font-size: extralarge;
+  color: white;
 `
 
 const Wrapper = styled.div`
@@ -110,51 +82,3 @@ const Wrapper = styled.div`
     position: relative;
 `
 
-// TODO: optimize 
-const Step = styled.section`
-    width: 100%;
-    height: 100%;
-    background-image: url(${props => props.url});
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-`
-
-const TextBox = styled.p`
-    max-width: 400px;
-    background-color: white;
-    padding: 10px;
-    color: black;
-    font-family:  "Classroom";
-    font-size: 1.5rem;
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    border-color: black;
-    border-width: 6px;
-    border-style: solid;
-    border-radius: 11% 7% 24% 2% / 3% 1% 5% 15%;
-    box-shadow: rgb(0 0 0) 0px 30px 60px -30px, rgb(36 32 27 / 95%) 0px -2px 6px 0px inset;
-
-    & ::selection{
-        background: #918e86;
-        text-decoration: inherit;
-    }
-
-    & ::-moz-selection{
-        background: #918e86;
-        text-decoration: inherit;
-    }
-
-    u{
-        & ::selection{
-            background: #918e86;
-            text-decoration: inherit;
-        }
-    
-        & ::-moz-selection{
-            background: #918e86;
-            text-decoration: inherit;
-        }       
-    }
-`

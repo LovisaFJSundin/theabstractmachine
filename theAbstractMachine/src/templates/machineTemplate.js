@@ -11,7 +11,7 @@ const MachineTemplate = ({ data }) => {
 
     return (
         <Layout>
-            <ConceptEntry>{title}</ConceptEntry>
+            <MDXRenderer>{body}</MDXRenderer>
         </Layout>
     )
 }
