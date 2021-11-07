@@ -36,3 +36,25 @@ https://www.fontspace.com/fundamental-brigade-font-f13829
     font-family: "MODERN TYPEWRITER";
     src: url("../fonts/ModernTypewriter-YaR4.ttf");
   }
+
+  @font-face{
+    font-family:  "Royal Typewriter";
+    src: url("../fonts/ZaiRoyalVogueTypewriter1929-4Bdxl.ttf");
+  }
+
+  @font-face{
+    font-family: "Copystruct";
+    src: url("../fonts/CopystructNormal-X3DP.ttf");
+
+  }
+
+  @font-face{
+    font-family: "Copystruct";
+    src: url("../fonts/CopystructBold-L3Y5.ttf");
+    font-weight: bold;
+  }
+
+  @font-face{
+    font-family: "Classroom";
+    src: url("../fonts/ClassroomPersonalUse-7Bv34.ttf");
+  }

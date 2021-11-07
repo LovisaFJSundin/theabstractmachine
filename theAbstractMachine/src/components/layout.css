@@ -1,10 +1,3 @@
-@import "../css/typography.css";
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 /* 
 
@@ -17,18 +10,17 @@ https://pangrampangram.com/products/neue-machina
 Has amazing animations that make you fall in love with a site.
 
 */
-
-:root {
-    --body-padding: 40px;
-}
-
-body{
-    background-image: url(./background.jpg);
-    background-repeat: no-repeat;
+.bodyWrapper{
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
+    height: 100vh;
     max-width: 100vw;
+}
+
+main{
+    flex-grow: 1;
+    margin: 0px 30px;
+    border: 2px solid #505050;
 }
 
 code{

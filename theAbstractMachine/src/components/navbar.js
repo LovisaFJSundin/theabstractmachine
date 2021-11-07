@@ -1,28 +1,67 @@
 import React from "react"
 import { Link } from "gatsby"
-//import styled from 'styled-components'
-import * as styles  from "./navbar.module.css"
+import styled from 'styled-components'
+//import * as styles  from "./navbar.module.css"
 
+const NavWrapper = styled.nav`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1em 0px;
+`
+
+const StyledLink = styled(props => <Link {...props} />)`
+  padding: 0px 20px 6px 20px;
+  font-family: "USIS 1949";
+  color: #505050;
+  text-transform: uppercase;
+  font-size: large;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 95%;
+    transform: scaleX(0);
+    height: 3px;
+    top: 2;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+  }
+  &:hover {
+    color: white;
+    text-shadow: 0 0 0px #fff, 0 0 10px #fff, 0 0 0px #fff;
+  }
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+`;
+
+const MainLink = styled(StyledLink)`
+  font-weight: bold;
+`
 
 const Navbar = () => {
   return (
-    <nav className={styles.wrapper}>
-      <div className={styles.listBar} >
+    <NavWrapper>
 
-          <Link to="/the-machine" className={styles.navLink} >The Machine</Link>
+          <MainLink to="/the-machine" >The Machine</MainLink>
 
-          <Link to="/algorithms" className={styles.navLink} >Algorithms</Link>
+          <MainLink to="/algorithms" >Algorithms</MainLink>
 
-          <Link to="/machine-intelligence" className={styles.navLink} >Machine Intelligence</Link>
-        </div>
-      <div className={styles.listBar}>
+          <MainLink to="/machine-intelligence" >Machine Intelligence</MainLink>
 
-          <Link to="/about" className={styles.navLink} >About</Link>
+          <StyledLink to="/about"  >About</StyledLink>
 
-          <Link to="/contact" className={styles.navLink} >Contact</Link>
+          <StyledLink to="/contact"  >Contact</StyledLink>
 
-      </div>
-    </nav>
+    </NavWrapper>
   )
 }
 
