@@ -51,6 +51,8 @@ const Navbar = () => {
   return (
     <NavWrapper>
 
+          <StyledLink to="/"  >Home</StyledLink>
+
           <MainLink to="/the-machine" >The Machine</MainLink>
 
           <MainLink to="/algorithms" >Algorithms</MainLink>

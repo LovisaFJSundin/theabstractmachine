@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from "../../components/layout"
 import { graphql, Link } from 'gatsby'
 import styled from "styled-components";
+//import Image from "gatsby-plugin-image"
 
 const TheMachine = ({data}) => {
     const {allMdx:{nodes:concepts}} = data;
@@ -11,13 +12,14 @@ const TheMachine = ({data}) => {
             <Wrapper>
                 {
                     concepts.map((it,i)=>{
-                        return <ConceptEntry >{it.frontmatter.title}</ConceptEntry>
+                        return <StyledLink to={`/the-machine/${it.frontmatter.slug}`} >{it.frontmatter.title}</StyledLink>
                     })
                 }
             </Wrapper>
         </Layout>
     )
 }
+
 
 const ConceptEntry = styled.h2`
     color: #505050;
@@ -31,6 +33,10 @@ const StyledLink = styled(props => <Link {...props} />)`
     padding: 0px 20px 6px 20px;
     font-family: "USIS 1949";
     font-size: extralarge;
+
+    & :hover{
+        color: white;
+    }
 `
 
 const Wrapper = styled.div`
