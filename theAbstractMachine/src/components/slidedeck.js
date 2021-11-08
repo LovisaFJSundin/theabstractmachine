@@ -15,9 +15,12 @@ export default function SlideDeck({ title, children }) {
     /* Storing last scroll position for comparison's sake 
     to deduce direction */
     //const [lastScroll, setLastScroll] = useState(window.scrollY);
+    const childArray = React.Children.toArray(children);
+
+    console.log(`CHILDREN: ${childArray}`)
 
     const handleScroll = (e) => {
-        console.log(`E equals ${typeof(e)}`);
+
         //let scrollY = window.scrollY;
 
         if (e?.deltaY){
@@ -29,7 +32,7 @@ export default function SlideDeck({ title, children }) {
                 console.log("It went back!");
             }else{
             // If scrolled downwards, increment index
-                setStepIndex(stepIndex < children?.length-1 ? stepIndex + 1: children?.length-1);
+                setStepIndex(stepIndex < childArray?.length-1 ? stepIndex + 1: childArray?.length-1);
                 //setLastScroll(scrollY);
                 console.log("It went forward!");
             }
@@ -65,7 +68,7 @@ export default function SlideDeck({ title, children }) {
           {Children.map(children, (child, i) => {
           return React.cloneElement(child, { active: (i==stepIndex) })
         })}
-        <Stepper n={children?.length || 0}></Stepper>
+        <Stepper n={childArray.length || 0}></Stepper>
         </Wrapper>
     )
 }

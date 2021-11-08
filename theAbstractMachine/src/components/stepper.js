@@ -2,11 +2,12 @@ import React from 'react'
 import styled, { keyframes } from "styled-components";
 
 const Stepper = ({n}) => {
+    console.log(`Nr of steps in stepper is ${n}`)
     return (
 
         <StepperWrapper>
         {
-            [...Array(n)].map((e, i) => <NumberStep>{i+1}</NumberStep>)
+            [...Array(n)].map((e, i) => <NumberStep key={i+1}>{i+1}</NumberStep>)
         }            
         </StepperWrapper>
     )
