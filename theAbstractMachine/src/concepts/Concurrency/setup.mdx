@@ -10,10 +10,18 @@ description: Explore how the ...
 ---
 
 import SlideDeck from "./../../components/slidedeck"
+import Slide from "./../../components/slide"
 
 <!-- TODO: set up an image field -->
 
-<SlideDeck 
-    title="Concurrency" >
 
-</SlideDeck>
+
+<SlideDeck  title="Concurrency" >
+<Slide 
+slug="concurrency"
+imageDict={props.imageDict} 
+imagePaths={["SSLencryption_01.png"]} 
+paragraphs={["Hi there!", "Hope you're doing alrightey"]}  />
+</SlideDeck> 
+
+

@@ -16,7 +16,6 @@ export default function SlideDeck({ title, children }) {
     to deduce direction */
     //const [lastScroll, setLastScroll] = useState(window.scrollY);
 
-
     const handleScroll = (e) => {
         console.log(`E equals ${typeof(e)}`);
         //let scrollY = window.scrollY;
@@ -30,7 +29,7 @@ export default function SlideDeck({ title, children }) {
                 console.log("It went back!");
             }else{
             // If scrolled downwards, increment index
-                setStepIndex(stepIndex < children.length-1 ? stepIndex + 1: children.length-1);
+                setStepIndex(stepIndex < children?.length-1 ? stepIndex + 1: children?.length-1);
                 //setLastScroll(scrollY);
                 console.log("It went forward!");
             }
@@ -63,17 +62,36 @@ export default function SlideDeck({ title, children }) {
     return (
         <Wrapper >
           <Title>{title}</Title>
-        {Children.map(children, (child, i) => React.cloneElement(child, { active: i==stepIndex })
-          )}
-
+          {Children.map(children, (child, i) => {
+          return React.cloneElement(child, { active: (i==stepIndex) })
+        })}
         <Stepper n={children?.length || 0}></Stepper>
         </Wrapper>
     )
 }
 
+/*
+
+*/
+
 const Title = styled.h1`
-  font-size: extralarge;
+  font-size: 46px;
   color: white;
+  display: block;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  width: 500px;
+  text-align: center;
+  padding: 2px;
+  top: -2px;
+  border: 3px solid #505050;
+  font-family: "Zembood";
+  font-weight: lighter;
+  line-height: 44px;
+  letter-spacing: 5px;
 `
 
 const Wrapper = styled.div`

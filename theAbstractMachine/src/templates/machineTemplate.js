@@ -7,11 +7,14 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 const MachineTemplate = ({ data }) => {
 
-    const { mdx:{frontmatter: {title, category, subtitle, tags, description}, body}} = data;
+    const { mdx:{frontmatter: {title, category, subtitle, tags, description}, body}, 
+    allFile: {edges: images}} = data;
+
+    console.log(`ImageDict is: ${images}`)
 
     return (
         <Layout>
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXRenderer imageDict={images}>{body}</MDXRenderer>
         </Layout>
     )
 }
@@ -24,6 +27,7 @@ const ConceptEntry = styled.h2`
     display: block;
 `
 
+//TODO: only retrieve images based on folder with slug name!!!
 export const query = graphql`
     query GetSingleConcept($slug: String) {
         mdx(frontmatter: { slug: { eq: $slug }}) {
@@ -37,6 +41,19 @@ export const query = graphql`
             }
             body
         }
+        allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
+            edges {
+              node {
+                id
+                childImageSharp {
+                  fluid {
+                    tracedSVG
+                    src
+                  }
+                }
+              }
+            }
+          }
     }
 `
 

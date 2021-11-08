@@ -43,15 +43,28 @@ https://www.fontspace.com/fundamental-brigade-font-f13829
   }
 
   @font-face{
-    font-family:  "TT2020";
-    src: url("../fonts/Tt2020StyleFAscii-OVGZp.ttf");
+    font-family: "Engineer Hand";
+    src: url("../fonts/EngineerHand-l780.ttf");
   }
 
   @font-face{
-    font-family:  "TT2020";
-    src: url("../fonts/Tt2020StyleEItalic-4Bn3W.ttf");
-    font-style: italic;
+    font-family: "Old Type";
+    src: url("../fonts/Oldtypepersonaluse-6BaM.otf");
   }
+
+/* Technical drawings tend to use Isonorm *
+
+/* Penny Lane Corroded Bold Font */
+
+@font-face{
+  font-family: "Zembood";
+  src: url("../fonts/ZemboodVintage.otf");
+}
+
+@font-face{
+  font-family: "Sans Culottes";
+  src: url("../fonts/SansCulottes-K7B0X.ttf");
+}
 
 
   @font-face{
