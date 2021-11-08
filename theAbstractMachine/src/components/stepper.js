@@ -1,13 +1,13 @@
 import React from 'react'
 import styled, { keyframes } from "styled-components";
 
-const Stepper = ({n}) => {
+const Stepper = ({n, stepIndex}) => {
     console.log(`Nr of steps in stepper is ${n}`)
     return (
 
         <StepperWrapper>
         {
-            [...Array(n)].map((e, i) => <NumberStep key={i+1}>{i+1}</NumberStep>)
+            [...Array(n)].map((e, i) => <NumberStep key={i+1} white={stepIndex==i}>{i+1}</NumberStep>)
         }            
         </StepperWrapper>
     )
@@ -18,13 +18,13 @@ const NumberStep = styled.div`
     border: 2px solid #505050;
     background-color: black;
     font-family: "USIS 1949";
-    color: #505050;
     font-size: 26px;
     height: 36px;
     width: 36px;
     text-align: center;
     font-weight: bold;
-
+    color: ${props => props.white? "white" : "#505050"};
+    border-color: ${props => props.white? "white" : "#505050"};
 `
 //TODO: Refactor this styling so that it is more configurable
 //TODO: Add animation (i.e. make the pseudoelement per node so that you can make them white)

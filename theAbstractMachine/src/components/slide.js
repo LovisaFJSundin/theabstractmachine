@@ -4,8 +4,9 @@ import styled, { keyframes } from "styled-components";
 
 const Slide = (props) => {
 
-    const  { imagePaths, paragraphs, imageDict, active, slug}= props; //
-    const [isActive, setIsActive] = useState(active);
+    const  { imagePaths, paragraphs, imageDict, active, key}= props; //
+    //const [isActive] = useState(active);
+    console.log(`Is active? ${active}`)
 
     // For each requested image filename...
     const images = imagePaths.map((name, ix)=> {
@@ -18,12 +19,14 @@ const Slide = (props) => {
       return targetImageDict[0].node.childImageSharp.fluid;
     }) || [];
 
-    
-
+    console.log(`Component re-running! ${active}`)
+//,         
     return (
       <>
         <Step
-        style={{position:"absolute"}}
+        active={active}
+        key={active ? 'active': 'inactive'}
+        style={{position:"absolute", opacity:active? 1 : 0.1}}
         Tag="section"
         preserveStackingContext={true}
         fluid={images} >
@@ -64,9 +67,8 @@ const Step = styled(BackgroundImage)`
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    opacity: 0.5;
 `
-//      background-image: url(${props => props.url});
+//      background-image: url(${props => props.url}); opacity: active ?
 
 const BoxContainer = styled.div`
   position: absolute;

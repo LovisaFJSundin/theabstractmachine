@@ -12,16 +12,10 @@ export default function SlideDeck({ title, children }) {
 
     // Store current index TODO: make props-dependent
     const [stepIndex, setStepIndex] = useState(0);
-    /* Storing last scroll position for comparison's sake 
-    to deduce direction */
-    //const [lastScroll, setLastScroll] = useState(window.scrollY);
+
     const childArray = React.Children.toArray(children);
 
-    console.log(`CHILDREN: ${childArray}`)
-
     const handleScroll = (e) => {
-
-        //let scrollY = window.scrollY;
 
         if (e?.deltaY){
             
@@ -29,12 +23,12 @@ export default function SlideDeck({ title, children }) {
             if (e?.deltaY > 0) {
                 setStepIndex(stepIndex > 1? stepIndex - 1: 0);
                 //setLastScroll(scrollY);
-                console.log("It went back!");
+                console.log(`It went back!: ${stepIndex}`);
             }else{
             // If scrolled downwards, increment index
                 setStepIndex(stepIndex < childArray?.length-1 ? stepIndex + 1: childArray?.length-1);
                 //setLastScroll(scrollY);
-                console.log("It went forward!");
+                console.log(`It went forward!: ${stepIndex}`);
             }
         }
         //e.preventDefault();
@@ -64,11 +58,12 @@ export default function SlideDeck({ title, children }) {
 
     return (
         <Wrapper >
-          <Title>{title}</Title>
+          <Title>{title}.</Title>
           {Children.map(children, (child, i) => {
-          return React.cloneElement(child, { active: (i==stepIndex) })
+            console.log(`Rendering with child ${i}. Is it active?${i===stepIndex}`)
+          return React.cloneElement(child, { key:i, active: (i===stepIndex) })
         })}
-        <Stepper n={childArray.length || 0}></Stepper>
+        <Stepper stepIndex={stepIndex} n={childArray.length || 0}></Stepper>
         </Wrapper>
     )
 }
