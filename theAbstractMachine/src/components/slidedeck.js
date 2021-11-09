@@ -90,6 +90,7 @@ const Title = styled.h1`
   font-weight: lighter;
   line-height: 44px;
   letter-spacing: 5px;
+  background-color: #00000061;
 `
 
 const Wrapper = styled.div`

@@ -1,6 +1,6 @@
 import React, {useState } from 'react'
 import BackgroundImage from 'gatsby-background-image';
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 const Slide = (props) => {
 
@@ -20,18 +20,22 @@ const Slide = (props) => {
     }) || [];
 
     console.log(`Component re-running! ${active}`)
-//,         
+
+    const stepStyles = {
+      position: "absolute"
+    }
+//,        opacity: active? 1 : 0.1,         
     return (
       <>
         <Step
         active={active}
         key={active ? 'active': 'inactive'}
-        style={{position:"absolute", opacity:active? 1 : 0.1}}
+        style={stepStyles}
         Tag="section"
         preserveStackingContext={true}
         fluid={images} >
         </Step>
-        <BoxContainer>
+        <BoxContainer  active={active}>
         {
                 paragraphs.map((p,i)=> {
                    return <TextBox key={i}>{p}</TextBox>
@@ -44,19 +48,19 @@ const Slide = (props) => {
 
 const fadeIn = keyframes`
   0% {
-    opacity: 0;
+    filter: blur(5px) opacity(10%);
   }
   100% {
-    opacity: 1;
+    filter: 1;
   }
 `
 
 const fadeOut = keyframes`
   0% {
-    opacity: 1;
+    filter: 1;
   }
   100% {
-    opacity: 0;
+    filter: blur(5px) opacity(10%);
   }
 `
 
@@ -67,18 +71,21 @@ const Step = styled(BackgroundImage)`
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
+    animation: ${ props => props.active ? css`1.5s ${fadeIn} ease-in forwards` : css`1.5s ${fadeOut} ease-in forwards`};
 `
 //      background-image: url(${props => props.url}); opacity: active ?
 
-const BoxContainer = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  max-width: 500px;
-  top: 100px;
-  left: 100px;
-`
+const BoxContainer = styled.div((props)=> ({
+  position: "absolute",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-around",
+  maxWidth: "500px",
+  top: "100px",
+  left: "100px",
+  display: props.active ? "visible":"none"
+}))
+
 
 const TextBox = styled.p`
     margin-bottom: 40px;
