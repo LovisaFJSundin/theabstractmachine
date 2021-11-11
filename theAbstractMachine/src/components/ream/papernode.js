@@ -1,22 +1,40 @@
-import React from "react"
+import React, {useState, useRef} from "react"
 import styled, { keyframes } from "styled-components"
 import Xarrow, { useXarrow, Xwrapper } from 'react-xarrows';
 import Draggable, {DraggableCore}  from 'react-draggable';
 
-const PaperNode = (props) => {
+const PaperNode = ({id, children}) => {
   const updateXarrow = useXarrow();
   return (
     <Draggable onDrag={updateXarrow} onStop={updateXarrow} >
-    <div ref={props.snippet.ref} id={props.snippet.id} style={{width:"fit-content"}}>
+    <div ref={useRef(null)} id={id} style={{width:"fit-content"}}>
       <PaperWrap>
-          <CodeVisible
-            dangerouslySetInnerHTML={{ __html: props.snippet.code }}
-          ></CodeVisible>
+          <CodeVisible>
+              {children}
+          </CodeVisible>
       </PaperWrap>
     </div>
     </Draggable >
   )
 }
+
+
+export const Snippet = ({ open, placeholder, children })=>{
+
+    const [isOpen, setIsOpen] = useState(open || false);
+
+    return (
+        <>
+    {children}
+        </>
+    );
+}
+
+/*
+            {isOpen ?
+                { children } :
+                (<span onClick={setIsOpen(!isOpen)}> {placeholder || '...'} </span>)}
+*/
 
 const CodeVisible = styled.code`
   color: black;
