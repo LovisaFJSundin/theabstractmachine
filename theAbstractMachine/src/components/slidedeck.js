@@ -1,10 +1,6 @@
 import { withAssetPrefix } from 'gatsby-link';
 import React, { Children, useState, useMemo , useEffect } from 'react'
 import styled, { keyframes } from "styled-components";
-import SSLencryption_01 from "./img/SSLencryption_01.png"
-import SSLencryption_02 from "./img/SSLencryption_02.png"
-import SSLencryption_03 from "./img/SSLencryption_03.png"
-import SSLencryption_04 from "./img/SSLencryption_04.png"
 import debounce from 'lodash.debounce';
 import Stepper from "./stepper";
 
@@ -73,7 +69,7 @@ export default function SlideDeck({ title, children }) {
 */
 
 const Title = styled.h1`
-  font-size: 46px;
+  font-size: 24px;
   color: white;
   display: block;
   left: 0;
@@ -83,12 +79,11 @@ const Title = styled.h1`
   position: absolute;
   width: 500px;
   text-align: center;
-  padding: 2px;
-  top: -2px;
-  border: 3px solid #505050;
-  font-family: "Zembood";
+  top: -1.5px;
+  border: 1.5px solid #505050;
+  font-family: "Old Type";
   font-weight: lighter;
-  line-height: 44px;
+  line-height: 24px;
   letter-spacing: 5px;
   background-color: #00000061;
 `

@@ -19,8 +19,8 @@ Has amazing animations that make you fall in love with a site.
 
 main{
     flex-grow: 1;
-    margin: 0px 30px;
-    border: 2px solid #505050;
+    margin: 0px 20px;
+    border: 1.5px solid #505050;
 }
 
 code{

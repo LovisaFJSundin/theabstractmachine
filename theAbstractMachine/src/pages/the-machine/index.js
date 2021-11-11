@@ -10,6 +10,9 @@ const TheMachine = ({data}) => {
     return (
         <Layout>
             <Wrapper>
+              <p> his programmable spinrock, or Babbage his..., the </p>
+              <p> Today, when computer scientists speak of containers, of ports, protocols, interfaces, partitions and contexts, they can no longer see them, only imagine them in the privacy of their mind's eye.</p> 
+              <p>Gone is the clangor, the clatter of interlocking , crank-driven. Ghostly notions... entities that can be inferred from wisely chosen questions, or broadcast through error, ... Abstractions conjured from bit patterns that to the naked eye appear as wholly featureless, motionless semiconductor arrays. </p>
                 {
                     concepts.map((it,i)=>{
                         return <StyledLink to={`/the-machine/${it.frontmatter.slug}`} >{it.frontmatter.title}</StyledLink>

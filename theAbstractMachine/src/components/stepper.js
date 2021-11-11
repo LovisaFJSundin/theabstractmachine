@@ -18,9 +18,9 @@ const NumberStep = styled.div`
     border: 2px solid #505050;
     background-color: black;
     font-family: "USIS 1949";
-    font-size: 26px;
-    height: 36px;
-    width: 36px;
+    font-size: 16px;
+    height: 26px;
+    width: 26px;
     text-align: center;
     font-weight: bold;
     color: ${props => props.white? "white" : "#505050"};

@@ -8,7 +8,7 @@ const FootWrapper = styled.footer`
   justify-content: center;
   padding: 1em 0px;
   font-family: "USIS 1949";
-  font-size: small;
+  font-size: 9px;
   color: #505050;
 `
 

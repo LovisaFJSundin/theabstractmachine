@@ -8,22 +8,23 @@ const NavWrapper = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 1em 0px;
+  padding: 10px 0px;
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
-  padding: 0px 20px 6px 20px;
+  padding: 0px 20px;
   font-family: "USIS 1949";
   color: #505050;
   text-transform: uppercase;
-  font-size: large;
+  font-size: 14px;
   letter-spacing: 0.2em;
   text-decoration: none;
   position: relative;
   &:after {
     content: '';
     position: absolute;
-    width: 95%;
+    width: calc(100% - 42px);
+    margin: 0px 20px;
     transform: scaleX(0);
     height: 2px;
     top: 2;

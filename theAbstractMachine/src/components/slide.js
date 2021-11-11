@@ -60,7 +60,7 @@ const fadeOut = keyframes`
     filter: 1;
   }
   100% {
-    filter: blur(5px) opacity(10%);
+    filter: blur(5px) opacity(10%); 
   }
 `
 
@@ -71,7 +71,7 @@ const Step = styled(BackgroundImage)`
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    animation: ${ props => props.active ? css`1.5s ${fadeIn} ease-in forwards` : css`1.5s ${fadeOut} ease-in forwards`};
+    animation: ${ props => props.active ? css`1.5s ${fadeIn} ease-in forwards` : css`1.5s ${fadeOut} ease-out forwards`};
 `
 //      background-image: url(${props => props.url}); opacity: active ?
 
@@ -91,15 +91,14 @@ const TextBox = styled.p`
     margin-bottom: 40px;
     max-width: max-content;
     background-color: white;
-    padding: 10px;
+    padding: 0px;
     color: black;
     font-family:  "Classroom";
-    font-size: 1.5rem;
-    border-color: black;
+    font-size: 1rem;
+    border-color: white;
     border-width: 4px;
     border-style: solid;
-    border-radius: 11% 7% 24% 2% / 3% 1% 5% 15%;
-    box-shadow: rgb(0 0 0) 0px 30px 60px -30px, rgb(36 32 27 / 95%) 0px -2px 6px 0px inset;
+    border-radius: 21% 17% 24% 2% / 3% 1% 5% 15%;
 
     & ::selection{
         background: #918e86;
@@ -123,5 +122,6 @@ const TextBox = styled.p`
         }       
     }
 `
+//    box-shadow: rgb(0 0 0) 0px 30px 60px -30px, rgb(36 32 27 / 95%) 0px -2px 6px 0px inset;
 
 export default Slide
